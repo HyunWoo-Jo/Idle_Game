@@ -14,5 +14,6 @@ namespace Game.Main
         public GameObject roadPrefab;
         public GameObject startPrefab;
         public GameObject endPrefab;
+        public GameObject wallPrefab;
     }
 }

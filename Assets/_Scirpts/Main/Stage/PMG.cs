@@ -32,11 +32,10 @@ namespace Game.Main
             int totalSize = (_xSize * _ySize) - 2;
             
             // 시드 설정
-            if(_seed != -1) {
-                UnityEngine.Random.InitState(_seed); 
-            } else {
-                UnityEngine.Random.InitState(DateTime.Now.Second);
+            if(_seed == -1) {
+                _seed = DateTime.Now.Second;
             }
+            UnityEngine.Random.InitState(_seed);
 
             // 방향 세팅
             Direction mainDriection = (Direction)UnityEngine.Random.Range(0, 4);
@@ -49,9 +48,18 @@ namespace Game.Main
             do {
                 curPos = nextPos;
                 map[curPos.x, curPos.y] = BlockType.Road;
+
+                //벽 생성
+                Pos wallPos = curPos;
+                wallPos.y += 1;
+                if(IsAble(map, wallPos) && map[wallPos.x, wallPos.y].Equals(BlockType.None)) {
+                    map[wallPos.x, wallPos.y] = BlockType.Wall;
+                }
+
                 curDirection = NextDirection(mainDriection, curDirection);
                 nextPos = NextPos(nextPos, curDirection);
-            } while (IsMoveAble(map, nextPos));
+                
+            } while (IsAble(map, nextPos));
 
             map[curPos.x, curPos.y] = BlockType.End;
 
@@ -103,12 +111,12 @@ namespace Game.Main
             return nextDirection;
         }
         /// <summary>
-        /// 이동 가능한지 확인하는 함수
+        /// 맵이 이용 가능한지 확인하는 함수
         /// </summary>
         /// <param name="map"></param>
         /// <param name="pos"></param>
         /// <returns></returns>
-        private bool IsMoveAble(BlockType[,] map, Pos pos) {
+        private bool IsAble(BlockType[,] map, Pos pos) {
             if (pos.x > _xSize || pos.y > _ySize || pos.x < 0 || pos.y < 0) return false;
             else return true;
         }

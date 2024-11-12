@@ -26,6 +26,11 @@ namespace Game.Main
             _y = y;
         }
 
+        public void SetSeed(int seed) {
+            _pmg.SetSeed(seed);
+        }
+
+
         public void CreateMap(MapType mapType, int x, int y, out Pos startPos) {
             switch (mapType) {
                 case MapType.Classic:
@@ -46,6 +51,9 @@ namespace Game.Main
                     _map[i, j] = BlockType.None;
                 }
             }
+            foreach(Transform chTr in this.transform) {
+                Destroy(chTr.gameObject);
+            }
         }
 
         
@@ -60,6 +68,9 @@ namespace Game.Main
                         obj.transform.position = new Vector2(i, j);
                     } else if (_map[i, j].Equals(BlockType.End)) {
                         GameObject obj = Instantiate(_mapResource.endPrefab, this.transform);
+                        obj.transform.position = new Vector2(i, j);
+                    } else if (_map[i, j].Equals(BlockType.Wall)) {
+                        GameObject obj = Instantiate(_mapResource.wallPrefab, this.transform);
                         obj.transform.position = new Vector2(i, j);
                     }
                 }
