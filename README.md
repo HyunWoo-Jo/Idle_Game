@@ -5,3 +5,7 @@
 
 ## 메인 로직에 들어가야 하는 기능들
 <img width="386" alt="image" src="https://github.com/user-attachments/assets/c0002674-cf57-4ce7-a3de-eb6d9899083e">
+
+
+#### 캐릭터 기능
+<img width="628" alt="image" src="https://github.com/user-attachments/assets/eddeae38-d359-4d46-b9c5-1708b70a988d">
