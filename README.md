@@ -8,4 +8,4 @@
 
 
 #### 캐릭터 기능
-<img width="628" alt="image" src="https://github.com/user-attachments/assets/eddeae38-d359-4d46-b9c5-1708b70a988d">
+<img width="619" alt="image" src="https://github.com/user-attachments/assets/920302b0-a8ed-4dc3-9758-b8294484d5e7">
