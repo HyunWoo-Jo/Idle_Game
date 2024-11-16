@@ -8,7 +8,8 @@
 
 
 #### 캐릭터 기능
-<img width="619" alt="image" src="https://github.com/user-attachments/assets/920302b0-a8ed-4dc3-9758-b8294484d5e7">
+<img width="516" alt="image" src="https://github.com/user-attachments/assets/2076ebad-0879-43af-923e-ecb3ede0c281">
+
 
 ## Assets
 [MINIFANTASY - Dungeon / Texture(Charater, tileMap)](https://assetstore.unity.com/packages/2d/environments/minifantasy-dungeon-206693)
