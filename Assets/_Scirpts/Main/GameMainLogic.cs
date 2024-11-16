@@ -24,6 +24,10 @@ namespace Game.Main
         // Update is called once per frame
         void Update()
         {
+            DungeonSpawnTest();
+        }
+
+        private void DungeonSpawnTest() {
             timer += Time.deltaTime;
             if (timer > time) {
                 timer -= time;
