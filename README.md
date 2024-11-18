@@ -8,7 +8,11 @@
 
 
 #### 캐릭터 기능
-<img width="516" alt="image" src="https://github.com/user-attachments/assets/2076ebad-0879-43af-923e-ecb3ede0c281">
+<img width="568" alt="image" src="https://github.com/user-attachments/assets/1dd72e1c-b1bf-4d91-b3c6-cb8313565dfa">
+
+---
+
+<img width="585" alt="image" src="https://github.com/user-attachments/assets/2bd9d5a9-2135-4a82-926f-a76edc351eb6">
 
 
 ## Assets
