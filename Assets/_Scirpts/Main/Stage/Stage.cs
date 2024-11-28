@@ -1,6 +1,8 @@
 using Codice.Client.BaseCommands;
 using UnityEngine;
-
+using Game.DataResources;
+using System.Collections;
+using System.Collections.Generic;
 namespace Game.Main
 {
    
@@ -10,9 +12,36 @@ namespace Game.Main
         private readonly ProceduralMapGeneration _pmg = new();
         private BlockType[,] _map;
         private int _x, _y;
-
+        private ResourceLabelName _curLabel;
         [SerializeField]
         private MapResoure _mapResource;
+
+        /// <summary>
+        /// map resource load
+        /// </summary>
+        /// <param name="label"></param>
+        public void LoadResource(ResourceLabelName label) {
+            IList<GameObject> loadList = ResourceManager.Instance.SyncLoadLabel(label);
+            _curLabel = label;
+
+            foreach (GameObject go in loadList) {
+                if (go.name.Contains("Wall")) {
+                    _mapResource.wallPrefab = go;
+                } else if (go.name.Contains("Road")) {
+                    _mapResource.roadPrefab = go;
+                } else if (go.name.Contains("Start")) {
+                    _mapResource.startPrefab = go;
+                } else if (go.name.Contains("End")) {
+                    _mapResource.endPrefab = go;
+                }
+            }
+        }
+        /// <summary>
+        /// map resource Unload
+        /// </summary>
+        public void ReleaseResource() {
+            ResourceManager.Instance.ReleaseLabel(_curLabel);
+        }
 
 
         /// <summary>

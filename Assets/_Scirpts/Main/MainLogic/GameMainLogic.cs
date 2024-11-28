@@ -8,17 +8,39 @@ namespace Game.Main
         [SerializeField] private Stage _stage;
         [SerializeField] private Camera _mainCamera;
 
+        /// <summary>
+        /// Release
+        /// </summary>
+        private void OnDestroy() {
+            _stage.ReleaseResource();
+        }
+        /// <summary>
+        /// 초기화
+        /// </summary>
+        private void Init() {
+            _stage.InitializeMap(200, 200);
+            _stage.SetSeed(Random.Range(0, 200));
+            _stage.LoadResource(DataResources.ResourceLabelName.Field_Standard);
+        }
+
+
+        private void Awake() {
+            Init();
+        }
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            _stage.InitializeMap(200, 200);
-            _stage.SetSeed(Random.Range(0, 200));
             _stage.CreateMap(MapType.Classic, 200, 200, out Pos startPos);
             _stage.DrawAllMap();
 
             _mainCamera.transform.position = new Vector3(startPos.x, startPos.y - 7, -10);
         }
 
+
+
+        #region Test Code
+        // 자동 맵 생성 확인
         float time = 10;
         float timer = 0;
         // Update is called once per frame
@@ -38,5 +60,6 @@ namespace Game.Main
                 _mainCamera.transform.position = new Vector3(startPos.x, startPos.y - 7, -10);
             }
         }
+        #endregion
     }
 }
