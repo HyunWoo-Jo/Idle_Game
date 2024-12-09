@@ -404,10 +404,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapResource:
-    roadPrefab: {fileID: 8574657050688933605, guid: 7cfef26ae29ddc641a9d05b2bf5f4134, type: 3}
-    startPrefab: {fileID: 8574657050688933605, guid: 0416843a93d246540b3620308ca2ef78, type: 3}
-    endPrefab: {fileID: 8574657050688933605, guid: 91a9838d9638c754aa2980a4c923f285, type: 3}
-    wallPrefab: {fileID: 8574657050688933605, guid: ed6614d7e35d3ba4da815edaeeb4645c, type: 3}
+    roadPrefab: {fileID: 0}
+    startPrefab: {fileID: 0}
+    endPrefab: {fileID: 0}
+    wallPrefab: {fileID: 0}
 --- !u!4 &435418367
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,6 +1010,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872553711}
   m_CullTransparentMesh: 1
+--- !u!1 &938368383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 938368385}
+  - component: {fileID: 938368384}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &938368384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938368383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7daad58bccfa94446a190e19179d3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &938368385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938368383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 593.4131, y: 2328.219, z: -6.1508636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949611460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,3 +2170,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1831090979}
   - {fileID: 1931614584}
+  - {fileID: 938368385}
