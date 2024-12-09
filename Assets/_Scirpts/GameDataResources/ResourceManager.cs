@@ -9,9 +9,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using Game.DesignPattern;
 namespace Game.DataResources
 {
-    public enum ResourceLabelName {
-        Field_Standard,
-    }
 
     public class ResourceManager : Singleton<ResourceManager>
     {
@@ -44,6 +41,13 @@ namespace Game.DataResources
                 Addressables.Release(handle);
                 _loaded_label_dictionary.Remove(label);
             }
+        }
+
+
+        public GameObject SyncLoad(string key) {
+            AsyncOperationHandle<GameObject> handle =  Addressables.LoadAssetAsync<GameObject>(key);
+            handle.WaitForCompletion();
+            return handle.Result;
         }
     }
 }

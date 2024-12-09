@@ -23,18 +23,11 @@ namespace Game.Main
         public void LoadResource(ResourceLabelName label) {
             IList<GameObject> loadList = ResourceManager.Instance.SyncLoadLabel(label);
             _curLabel = label;
-
-            foreach (GameObject go in loadList) {
-                if (go.name.Contains("Wall")) {
-                    _mapResource.wallPrefab = go;
-                } else if (go.name.Contains("Road")) {
-                    _mapResource.roadPrefab = go;
-                } else if (go.name.Contains("Start")) {
-                    _mapResource.startPrefab = go;
-                } else if (go.name.Contains("End")) {
-                    _mapResource.endPrefab = go;
-                }
-            }
+            _mapResource.wallPrefab = ResourceManager.Instance.SyncLoad(AddressableKey.Wall);
+            _mapResource.endPrefab = ResourceManager.Instance.SyncLoad(AddressableKey.End);
+            _mapResource.roadPrefab = ResourceManager.Instance.SyncLoad(AddressableKey.Road);
+            _mapResource.startPrefab = ResourceManager.Instance.SyncLoad(AddressableKey.Start);
+            
         }
         /// <summary>
         /// map resource Unload

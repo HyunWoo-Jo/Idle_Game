@@ -1,12 +1,14 @@
+using System.Resources;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using Game.DataResources;
 namespace Game.Main
 {
     public class GameMainLogic : MonoBehaviour
     {
         [SerializeField] private Stage _stage;
         [SerializeField] private Camera _mainCamera;
+        private GameObject _player;
 
         /// <summary>
         /// Release
@@ -33,8 +35,12 @@ namespace Game.Main
         {
             _stage.CreateMap(MapType.Classic, 200, 200, out Pos startPos);
             _stage.DrawAllMap();
-
+            // 카메라 위치 초기화
             _mainCamera.transform.position = new Vector3(startPos.x, startPos.y - 7, -10);
+            // 플레이어 초기화
+            GameObject playerObj = DataResources.ResourceManager.Instance.SyncLoad(AddressableKey.Player);
+            _player = Instantiate(playerObj);
+            _player.transform.position = new Vector3(startPos.x, startPos.y, -1);
         }
 
 
